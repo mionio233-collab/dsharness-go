@@ -192,7 +192,7 @@
             <div class="cap-copy">
               <p class="cap-kicker">01 / 连接</p>
               <h3 class="subtitle">继续电脑上的工作</h3>
-              <p class="body-desc">局域网扫码或同账号中继连接电脑端 Harness，手机端继续对话、查看任务进度，模型与项目上下文保持一致。</p>
+              <p class="body-desc">局域网扫码或同账号中继连接电脑端 Harness。模型提问可在手机确认，任务继续执行，任务列表实时同步，模型与项目上下文保持一致。</p>
             </div>
             <div class="motion-stage">
               <div class="scene scene-remote" aria-hidden="true">
@@ -215,9 +215,16 @@
                     <div class="sr-chat">
                       <div class="sr-bubble sr-user">帮我把上周的项目记录整理成周报</div>
                       <div class="sr-bubble sr-bot"><span class="sr-lines"><i></i><i></i><i></i></span></div>
-                      <div class="sr-task">
-                        <span>生成周报</span>
-                        <span class="sr-taskbar"><i></i></span>
+                      <div class="sr-question">
+                        <div class="sr-qhead"><i></i>需要你确认</div>
+                        <p>继续生成周报并同步到手机？</p>
+                        <div class="sr-qbtns"><span class="sr-yes">继续</span><span>稍后</span></div>
+                        <b class="sr-answered">已确认</b>
+                      </div>
+                      <div class="sr-tasks">
+                        <div class="sr-trow is-done"><i></i><span>整理项目记录</span><em>完成</em></div>
+                        <div class="sr-trow is-active"><i></i><span>生成周报</span><em>进行中</em></div>
+                        <div class="sr-trow is-sync"><i></i><span>同步到手机</span><em>实时</em></div>
                       </div>
                     </div>
                   </div>
@@ -227,13 +234,24 @@
                   <div class="sr-notch"></div>
                   <div class="sr-pscreen">
                     <div class="sr-phead">DSHarness Go <span class="sr-conn">已连接</span></div>
-                    <div class="sr-pmsg sr-pmsg-user">把这份周报整理成 PPT</div>
-                    <div class="sr-pmsg sr-pmsg-bot"><i></i><i></i><i></i></div>
+                    <div class="sr-notify">
+                      <div class="sr-nhead">电脑端请求继续任务</div>
+                      <p>继续生成并同步周报？</p>
+                      <span class="sr-pconfirm">确认继续</span>
+                      <span class="sr-pdone">已确认</span>
+                    </div>
+                    <div class="sr-ptasks">
+                      <div class="sr-ptrow"><i></i><span>整理记录</span><em>完成</em></div>
+                      <div class="sr-ptrow"><i></i><span>生成周报</span><em>进行中</em></div>
+                      <div class="sr-ptrow"><i></i><span>同步任务列表</span><em>实时</em></div>
+                    </div>
                     <div class="sr-pinput">输入消息…</div>
+                    <div class="sr-syncbadge">任务实时同步</div>
                   </div>
+                  <span class="sr-tap"></span>
                 </div>
                 <span class="sr-float sr-float-a">同一工作区</span>
-                <span class="sr-float sr-float-b">上下文同步</span>
+                <span class="sr-float sr-float-b">任务实时同步</span>
               </div>
               <button class="motion-pause" type="button" data-motion-toggle aria-label="暂停动效">
                 <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
@@ -308,19 +326,27 @@
             <div class="cap-copy">
               <p class="cap-kicker">04 / 自动化</p>
               <h3 class="subtitle">手机 Agent</h3>
-              <p class="body-desc">基于 Android 无障碍服务：观察界面、点击、输入、手势与截图，让模型替你操作手机；敏感页面不上传。</p>
+              <p class="body-desc">基于 Android 无障碍服务，接入任意大模型：观察界面、点击、输入、手势与截图，让 AI 替你点外卖、下载软件、操作手机；敏感页面不上传。</p>
             </div>
             <div class="motion-stage">
               <div class="scene scene-agent" aria-hidden="true">
                 <div class="sa-glow"></div>
+                <div class="sa-model"><i></i>接入任意大模型 <span>⌄</span></div>
                 <div class="sa-phone">
                   <div class="sa-notch"></div>
                   <div class="sa-screen">
                     <div class="sa-status"><span>9:41</span><span class="sa-authed">无障碍已授权</span></div>
-                    <div class="sa-appbar">日程</div>
-                    <div class="sa-item"><i></i><span>产品评审会</span><em>10:30</em></div>
-                    <div class="sa-item"><i></i><span>周报整理</span><em>14:00</em></div>
-                    <div class="sa-item"><i></i><span>项目同步</span><em>17:30</em></div>
+                    <div class="sa-appbar">AI 操作手机</div>
+                    <div class="sa-view sa-view-food">
+                      <div class="sa-app-title">外卖</div>
+                      <div class="sa-food-card"><i></i><div><b>牛肉面</b><span>¥28 · 预计 25 分钟</span></div><em>选择</em></div>
+                      <div class="sa-order-btn">提交订单</div>
+                    </div>
+                    <div class="sa-view sa-view-store">
+                      <div class="sa-app-title">应用商店</div>
+                      <div class="sa-dl-card"><i></i><div><b>番茄钟</b><span>下载中</span></div><em>72%</em></div>
+                      <div class="sa-dlbar"><i></i></div>
+                    </div>
                     <div class="sa-hl sa-hl-1"></div>
                     <div class="sa-hl sa-hl-2"></div>
                     <div class="sa-cursor"></div>
@@ -329,11 +355,14 @@
                 </div>
                 <div class="sa-panel">
                   <div class="sa-panel-head">Agent 正在执行</div>
-                  <div class="sa-step"><b>01</b><span>打开日程应用</span><i></i></div>
-                  <div class="sa-step"><b>02</b><span>读取今日安排</span><i></i></div>
-                  <div class="sa-step"><b>03</b><span>整理待办并归档</span><i></i></div>
+                  <div class="sa-step"><b>01</b><span>打开外卖 App</span><i></i></div>
+                  <div class="sa-step"><b>02</b><span>选择餐品并下单</span><i></i></div>
+                  <div class="sa-step"><b>03</b><span>下载指定软件</span><i></i></div>
                 </div>
+                <div class="sa-toast">外卖已下单</div>
                 <div class="sa-shield">敏感页面已跳过</div>
+                <div class="sa-chip sa-chip-a">点外卖</div>
+                <div class="sa-chip sa-chip-b">下载软件</div>
               </div>
               <button class="motion-pause" type="button" data-motion-toggle aria-label="暂停动效">
                 <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>

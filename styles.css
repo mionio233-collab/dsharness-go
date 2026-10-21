@@ -1374,3 +1374,142 @@ html:not(.js) .sa-ripple { opacity: 1; }
 .si-tile.t3::before { left: -8%; bottom: -20%; width: 66%; height: 66%; background: radial-gradient(circle at 45% 42%, rgba(210, 188, 255, .7), transparent 68%); }
 .si-tile.t4::before { left: 14%; bottom: -22%; width: 64%; height: 64%; background: radial-gradient(circle at 42% 38%, rgba(170, 240, 214, .65), transparent 68%); }
 .si-tile.t1::before { background: radial-gradient(circle at 36% 30%, rgba(220, 238, 255, .8), rgba(140, 184, 230, .28) 44%, transparent 70%); }
+/* ---------- revised scene 01: confirm on phone, tasks sync ---------- */
+.sr-question {
+  border: 1px solid rgba(143, 178, 255, .28); border-radius: 6px;
+  background: linear-gradient(180deg, rgba(62, 94, 168, .26), rgba(44, 64, 112, .16));
+  padding: 5px 6px; animation: srQuestion 9s infinite both;
+}
+.sr-qhead { display: flex; align-items: center; gap: 3px; font-size: 4.2px; color: #bcd0ff; }
+.sr-qhead i { width: 4px; height: 4px; border-radius: 50%; background: #6fd6c2; box-shadow: 0 0 5px rgba(111, 214, 194, .8); }
+.sr-question p { margin: 3px 0 4px; font-size: 5px; line-height: 1.45; color: rgba(255, 255, 255, .82); }
+.sr-qbtns { display: flex; gap: 4px; }
+.sr-qbtns span { font-size: 4px; padding: 2px 5px; border-radius: 3px; border: 1px solid hsla(0,0%,100%,.14); color: rgba(255,255,255,.6); }
+.sr-qbtns .sr-yes { background: #fff; color: #111; border-color: #fff; animation: srConfirmPulse 9s infinite both; }
+.sr-answered {
+  display: inline-block; margin-top: 3px; padding: 2px 5px; border-radius: 3px;
+  background: rgba(103,214,166,.14); border: 1px solid rgba(103,214,166,.35);
+  font-size: 4px; font-weight: 400; color: #8fe0c2;
+  animation: srAnswered 9s infinite both;
+}
+.sr-tasks { margin-top: auto; display: flex; flex-direction: column; gap: 3px; }
+.sr-trow { display: flex; align-items: center; gap: 4px; padding: 3px 4px; border: 1px solid hsla(0,0%,100%,.08); border-radius: 3px; font-size: 4px; color: rgba(255,255,255,.62); animation: srRowIn 9s infinite both; }
+.sr-trow i { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,.22); }
+.sr-trow em { margin-left: auto; font-style: normal; font-size: 3.6px; color: rgba(255,255,255,.4); }
+.sr-trow.is-done i { background: #6fd6c2; }
+.sr-trow.is-done em { color: #8fe0c2; }
+.sr-trow.is-active { border-color: rgba(143,178,255,.24); animation-delay: .5s; }
+.sr-trow.is-active i { background: #8fb2ff; animation: srDotPulse 9s infinite both; }
+.sr-trow.is-sync { animation-delay: 1s; }
+.sr-trow.is-sync i { background: #c6d6f7; }
+
+.sr-notify {
+  border: 1px solid rgba(143,178,255,.3); border-radius: 5px;
+  background: #eef4ff; color: #1a2b4a; padding: 5px;
+  animation: srNotify 9s infinite both;
+}
+.sr-nhead { font-size: 4.2px; font-weight: 600; color: #24467f; }
+.sr-notify p { margin: 2px 0 4px; font-size: 4.3px; line-height: 1.35; color: #4b5f80; }
+.sr-pconfirm { display: inline-block; padding: 2px 6px; border-radius: 3px; background: #3767e8; color: #fff; font-size: 4px; animation: srConfirmPulse 9s infinite both; }
+.sr-pdone { display: inline-block; padding: 2px 6px; border-radius: 3px; background: #d9f5e6; color: #087a4b; font-size: 4px; animation: srPdone 9s infinite both; }
+.sr-ptasks { display: flex; flex-direction: column; gap: 3px; }
+.sr-ptrow { display: flex; align-items: center; gap: 3px; padding: 3px 4px; border: 1px solid #e2e8f2; border-radius: 3px; font-size: 4px; color: #43536d; animation: srRowIn 9s infinite both; animation-delay: 3.8s; }
+.sr-ptrow i { width: 3px; height: 3px; border-radius: 50%; background: #3767e8; }
+.sr-ptrow em { margin-left: auto; font-style: normal; font-size: 3.4px; color: #7c8ba1; }
+.sr-ptrow:nth-child(2) { animation-delay: 4.2s; }
+.sr-ptrow:nth-child(3) { animation-delay: 4.6s; }
+.sr-syncbadge {
+  margin-top: 2px; align-self: flex-start; padding: 2px 4px; border-radius: 999px;
+  background: #e7f8ef; color: #087a4b; font-size: 3.8px;
+  animation: srSyncBadge 9s infinite both;
+}
+.sr-tap {
+  position: absolute; z-index: 5; left: 20%; top: 50%; width: 14px; height: 14px;
+  border-radius: 50%; border: 1.5px solid rgba(55,103,232,.75); opacity: 0;
+  animation: srTap 9s infinite both; pointer-events: none;
+}
+@keyframes srQuestion { 0%, 16% { opacity: 0; transform: translateY(5px); } 23%, 40% { opacity: 1; transform: none; } 46%, 100% { opacity: 0; } }
+@keyframes srAnswered { 0%, 40% { opacity: 0; } 46%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes srConfirmPulse { 0%, 27% { opacity: .45; } 33%, 38% { opacity: 1; transform: scale(.96); } 44%, 100% { opacity: 1; transform: none; } }
+@keyframes srPdone { 0%, 42% { opacity: 0; } 46%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes srNotify { 0%, 22% { opacity: 0; transform: translateY(5px); } 29%, 43% { opacity: 1; transform: none; } 48%, 100% { opacity: 0; } }
+@keyframes srRowIn { 0%, 38% { opacity: 0; transform: translateX(-3px); } 46%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes srDotPulse { 0%, 46% { opacity: .45; } 52%, 58% { opacity: 1; } 64%, 100% { opacity: .7; } }
+@keyframes srSyncBadge { 0%, 48% { opacity: 0; transform: scale(.9); } 54%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes srTap { 0%, 34% { opacity: 0; transform: scale(.35); } 40% { opacity: .9; } 50%, 100% { opacity: 0; transform: scale(2.2); } }
+.sr-question, .sr-notify, .sr-answered, .sr-pdone { position: relative; }
+
+/* ---------- revised scene 04: any LLM -> food / app install ---------- */
+.sa-model {
+  position: absolute; left: 6%; top: 5%; z-index: 4;
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 7px; border-radius: 999px; border: 1px solid hsla(0,0%,100%,.16);
+  background: rgba(12,16,23,.82); color: #d9e5ff; font-size: 5px;
+  animation: saModelIn 9s infinite both;
+}
+.sa-model i { width: 4px; height: 4px; border-radius: 50%; background: #6fd6c2; box-shadow: 0 0 6px rgba(111,214,194,.8); }
+.sa-model span { color: rgba(255,255,255,.45); font-size: 6px; }
+.sa-view { position: absolute; left: 6px; right: 6px; top: 32px; bottom: 6px; }
+.sa-view-food { animation: saFood 9s infinite both; }
+.sa-view-store { opacity: 0; animation: saStore 9s infinite both; }
+.sa-app-title { font-size: 6px; font-weight: 600; color: #111827; padding-bottom: 4px; border-bottom: 1px solid #e5e7eb; }
+.sa-food-card { display: flex; align-items: center; gap: 4px; margin-top: 8px; padding: 5px; border: 1px solid #e1e6ef; border-radius: 5px; background: #fff; }
+.sa-food-card i { width: 16px; height: 16px; border-radius: 4px; background: linear-gradient(135deg, #f3c48a, #b26c3b); flex: none; }
+.sa-food-card div { display: flex; flex-direction: column; gap: 2px; }
+.sa-food-card b { font-size: 5px; color: #111827; font-weight: 600; }
+.sa-food-card span { font-size: 3.8px; color: #7c8ba1; }
+.sa-food-card em { margin-left: auto; font-style: normal; font-size: 3.8px; color: #3767e8; }
+.sa-order-btn { margin-top: 7px; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 16px; border-radius: 4px; background: #3767e8; color: #fff; font-size: 4.5px; }
+.sa-dl-card { display: flex; align-items: center; gap: 4px; margin-top: 10px; padding: 6px; border: 1px solid #e1e6ef; border-radius: 5px; background: #fff; }
+.sa-dl-card i { width: 18px; height: 18px; border-radius: 5px; background: linear-gradient(135deg, #8fb2ff, #4567d9); flex: none; }
+.sa-dl-card div { display: flex; flex-direction: column; gap: 2px; }
+.sa-dl-card b { font-size: 5px; color: #111827; font-weight: 600; }
+.sa-dl-card span { font-size: 3.8px; color: #7c8ba1; }
+.sa-dl-card em { margin-left: auto; font-style: normal; font-size: 4px; color: #087a4b; }
+.sa-dlbar { height: 4px; margin-top: 7px; border-radius: 4px; background: #e5e7eb; overflow: hidden; }
+.sa-dlbar i { display: block; width: 0; height: 100%; border-radius: 4px; background: linear-gradient(90deg, #5f8cff, #6fd6c2); animation: saDownload 9s infinite both; }
+.sa-toast {
+  position: absolute; left: 6%; bottom: 5%; z-index: 5;
+  padding: 4px 7px; border-radius: 999px; border: 1px solid rgba(103,214,166,.28);
+  background: rgba(10,16,15,.86); color: #8fe0c2; font-size: 4.6px;
+  animation: saToast 9s infinite both;
+}
+.sa-chip {
+  position: absolute; z-index: 5; padding: 3px 6px; border-radius: 999px;
+  border: 1px solid hsla(0,0%,100%,.14); background: rgba(12,16,23,.8);
+  color: rgba(255,255,255,.68); font-size: 4.6px; white-space: nowrap;
+  animation: mFadeIn 9s infinite both;
+}
+.sa-chip-a { left: 5%; bottom: 18%; animation-delay: 2s; }
+.sa-chip-b { right: 5%; bottom: 24%; animation-delay: 5.4s; }
+.sa-hl-1 { left: 7px; top: 58px; right: 7px; height: 30px; animation-delay: 1.2s; }
+.sa-hl-2 { left: 7px; top: 96px; right: 7px; height: 20px; animation-delay: 2.6s; }
+@keyframes saModelIn { 0%, 4% { opacity: 0; transform: translateY(-4px); } 10%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes saFood { 0%, 2% { opacity: 0; } 8%, 52% { opacity: 1; } 58%, 100% { opacity: 0; } }
+@keyframes saStore { 0%, 55% { opacity: 0; } 64%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes saDownload { 0%, 60% { width: 0; } 82%, 94% { width: 72%; } 100% { width: 72%; } }
+@keyframes saToast { 0%, 38% { opacity: 0; transform: translateY(4px); } 46%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+
+/* base states for reduced-motion / no-JS: keep one clear final frame */
+@media (prefers-reduced-motion: reduce) {
+  .sa-view-food { display: none; }
+  .sa-view-store { opacity: 1; }
+  .sa-dlbar i { width: 72%; }
+  .sr-answered, .sr-pdone, .sr-syncbadge { display: inline-block; }
+  .sr-question { display: none; }
+}
+
+html:not(.js) .sr-question { display: none; }
+html:not(.js) .sr-answered, html:not(.js) .sr-pdone { display: inline-block; opacity: 1; }
+html:not(.js) .sr-syncbadge { opacity: 1; }
+html:not(.js) .sa-view-food { display: none; }
+html:not(.js) .sa-view-store { opacity: 1; }
+html:not(.js) .sa-dlbar i { width: 72%; }
+html:not(.js) .sa-model, html:not(.js) .sa-toast, html:not(.js) .sa-shield { opacity: 1; }
+
+.sa-step:nth-child(2) { animation-delay: 1.4s; }
+.sa-step:nth-child(3) { animation-delay: 2.8s; }
+.sa-step:nth-child(4) { animation-delay: 6.2s; }
+@media (prefers-reduced-motion: reduce) {
+  .sa-step { opacity: 1; }
+}

@@ -156,7 +156,7 @@
                     <ul>
                       <li>不能联网装软件、不能访问你手机里的相册/通讯录、不能替你在 App 里点安装。</li>
                     </ul>
-                    <p>想从哪个开始？比如你可以直接说「帮我做一个番茄钟页面」或者「做个猫咪桌宠插件」，我就直接开工 🙂</p>
+                    <p>想从哪个开始？比如你可以直接说「帮我做一个Focus timer页面」或者「做个猫咪桌宠插件」，我就直接开工 🙂</p>
                   </div>
                 </div>
                 <div class="app-input">
@@ -191,7 +191,7 @@
             <div class="cap-copy">
               <p class="cap-kicker">01 / Connect</p>
               <h3 class="subtitle">Continue desktop work</h3>
-              <p class="body-desc">Connect to Harness on your computer over LAN or the same account. Keep chatting, check task progress, and use the same model and project context.</p>
+              <p class="body-desc">Connect to Harness on your computer over LAN or the same account. Confirm model questions on your phone, keep tasks running and sync the task list in real time with the same model and project context.</p>
             </div>
             <div class="motion-stage">
               <div class="scene scene-remote" aria-hidden="true">
@@ -214,9 +214,16 @@
                     <div class="sr-chat">
                       <div class="sr-bubble sr-user">Turn last week's notes into a report</div>
                       <div class="sr-bubble sr-bot"><span class="sr-lines"><i></i><i></i><i></i></span></div>
-                      <div class="sr-task">
-                        <span>Generate report</span>
-                        <span class="sr-taskbar"><i></i></span>
+                      <div class="sr-question">
+                        <div class="sr-qhead"><i></i>Needs your confirmation</div>
+                        <p>Continue the report and sync to phone?</p>
+                        <div class="sr-qbtns"><span class="sr-yes">Continue</span><span>Later</span></div>
+                        <b class="sr-answered">Confirmed</b>
+                      </div>
+                      <div class="sr-tasks">
+                        <div class="sr-trow is-done"><i></i><span>Collect notes</span><em>Done</em></div>
+                        <div class="sr-trow is-active"><i></i><span>Generate report</span><em>In progress</em></div>
+                        <div class="sr-trow is-sync"><i></i><span>Sync to phone</span><em>Live</em></div>
                       </div>
                     </div>
                   </div>
@@ -226,13 +233,24 @@
                   <div class="sr-notch"></div>
                   <div class="sr-pscreen">
                     <div class="sr-phead">DSHarness Go <span class="sr-conn">Connected</span></div>
-                    <div class="sr-pmsg sr-pmsg-user">Make this report into slides</div>
-                    <div class="sr-pmsg sr-pmsg-bot"><i></i><i></i><i></i></div>
+                    <div class="sr-notify">
+                      <div class="sr-nhead">Desktop asks to continue</div>
+                      <p>Continue and sync the report?</p>
+                      <span class="sr-pconfirm">Confirm</span>
+                      <span class="sr-pdone">Confirmed</span>
+                    </div>
+                    <div class="sr-ptasks">
+                      <div class="sr-ptrow"><i></i><span>Collect notes</span><em>Done</em></div>
+                      <div class="sr-ptrow"><i></i><span>Generate report</span><em>In progress</em></div>
+                      <div class="sr-ptrow"><i></i><span>Sync task list</span><em>Live</em></div>
+                    </div>
                     <div class="sr-pinput">Message…</div>
+                    <div class="sr-syncbadge">Live task sync</div>
                   </div>
+                  <span class="sr-tap"></span>
                 </div>
                 <span class="sr-float sr-float-a">Same workspace</span>
-                <span class="sr-float sr-float-b">Context in sync</span>
+                <span class="sr-float sr-float-b">Live task sync</span>
               </div>
               <button class="motion-pause" type="button" data-motion-toggle aria-label="Pause motion">
                 <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
@@ -307,19 +325,27 @@
             <div class="cap-copy">
               <p class="cap-kicker">04 / Automation</p>
               <h3 class="subtitle">Phone Agent</h3>
-              <p class="body-desc">Android Accessibility: observe the screen, tap, type, gesture and capture; let the model operate your phone. Sensitive pages are never uploaded.</p>
+              <p class="body-desc">Android Accessibility + any LLM: observe, tap, type, gesture and capture; let the AI order food, download apps and operate your phone. Sensitive pages are never uploaded.</p>
             </div>
             <div class="motion-stage">
               <div class="scene scene-agent" aria-hidden="true">
                 <div class="sa-glow"></div>
+                <div class="sa-model"><i></i>Any model <span>⌄</span></div>
                 <div class="sa-phone">
                   <div class="sa-notch"></div>
                   <div class="sa-screen">
                     <div class="sa-status"><span>9:41</span><span class="sa-authed">Accessibility on</span></div>
-                    <div class="sa-appbar">Schedule</div>
-                    <div class="sa-item"><i></i><span>Product review</span><em>10:30</em></div>
-                    <div class="sa-item"><i></i><span>Report cleanup</span><em>14:00</em></div>
-                    <div class="sa-item"><i></i><span>Project sync</span><em>17:30</em></div>
+                    <div class="sa-appbar">AI in control</div>
+                    <div class="sa-view sa-view-food">
+                      <div class="sa-app-title">Food</div>
+                      <div class="sa-food-card"><i></i><div><b>Beef noodles</b><span>¥28 · 25 min</span></div><em>Select</em></div>
+                      <div class="sa-order-btn">Place order</div>
+                    </div>
+                    <div class="sa-view sa-view-store">
+                      <div class="sa-app-title">App Store</div>
+                      <div class="sa-dl-card"><i></i><div><b>Focus timer</b><span>Downloading</span></div><em>72%</em></div>
+                      <div class="sa-dlbar"><i></i></div>
+                    </div>
                     <div class="sa-hl sa-hl-1"></div>
                     <div class="sa-hl sa-hl-2"></div>
                     <div class="sa-cursor"></div>
@@ -328,11 +354,14 @@
                 </div>
                 <div class="sa-panel">
                   <div class="sa-panel-head">Agent running</div>
-                  <div class="sa-step"><b>01</b><span>Open schedule app</span><i></i></div>
-                  <div class="sa-step"><b>02</b><span>Read today's schedule</span><i></i></div>
-                  <div class="sa-step"><b>03</b><span>Organize and archive</span><i></i></div>
+                  <div class="sa-step"><b>01</b><span>Open food app</span><i></i></div>
+                  <div class="sa-step"><b>02</b><span>Pick food & order</span><i></i></div>
+                  <div class="sa-step"><b>03</b><span>Install app</span><i></i></div>
                 </div>
+                <div class="sa-toast">Order placed</div>
                 <div class="sa-shield">Sensitive pages skipped</div>
+                <div class="sa-chip sa-chip-a">点Food</div>
+                <div class="sa-chip sa-chip-b">Install app</div>
               </div>
               <button class="motion-pause" type="button" data-motion-toggle aria-label="Pause motion">
                 <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
