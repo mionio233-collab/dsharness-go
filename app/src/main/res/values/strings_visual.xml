@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="visual_title">可选视觉兜底</string>
+    <string name="visual_help">默认只读取无障碍节点。开启并在系统弹窗授权后，AI 仅在请求视觉观察时截图，并将临时图片发送给当前本机模型服务商；不会连续上传。登录、密码、验证码、支付及受保护或无法判断的页面不上传。图片不保存到对话或导出，任务结束、停止、锁屏或授权撤销后关闭；下次需重新授权。纯图片目标无法安全操作时请手动完成。</string>
+    <string name="visual_need_phone_consent">请先在对话的手机控制面板启用手机控制，并选择 Full 或 AutoReview 和 OpenAI 兼容服务商。</string>
+    <string name="visual_enabled">视觉已授权 · 等待按需观察</string>
+    <string name="visual_enable_action">授权本次视觉观察</string>
+    <string-array name="phone_observation_modes">
+        <item>无障碍</item>
+        <item>视觉</item>
+        <item>混合</item>
+    </string-array>
+</resources>

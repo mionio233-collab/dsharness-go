@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  应用支持的语言列表。
+  Android 13+ 的 per-app language（AppCompatDelegate.setApplicationLocales）要求
+  在 manifest 里通过 android:localeConfig 声明，否则系统侧不会记录/应用应用级语言，
+  表现为「设置 → 语言」和连接页的语言按钮点了没有反应。
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="zh-CN" />
+    <locale android:name="en" />
+</locale-config>

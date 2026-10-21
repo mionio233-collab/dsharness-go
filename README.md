@@ -16,8 +16,8 @@
   <b>DeepSeek Harness 移动端生态</b>
 </p>
 
-> 本仓库为 DSHarness Go 的公开下载与介绍页，包含项目介绍、截图、使用条款和更新日志，**不包含应用源码**。
-> 应用源码为私有仓库，官方只分发签名 APK。
+> 本仓库提供 Android 源码、项目介绍、构建文档与正式 APK 下载。
+> [下载 v1.0.12](https://github.com/mionio233-collab/dsharness-go/releases/tag/v1.0.12) · [浏览源码](./app/src/main) · [构建说明](./docs/BUILDING.md) · [AGPL-3.0](./LICENSE)
 
 ## 目录
 
@@ -161,13 +161,13 @@ iOS 版本仍在开发中，暂不提供下载。发布后会在下载页和 Git
 <details>
 <summary>源码是否公开？</summary>
 
-目前源码不公开，仅分发签名 APK；**计划在 iOS 版本完成后同步开源**；详见[使用条款](https://dsharnessgo.top/terms.html)。
+Android 源码已在本仓库公开，参阅 [app](./app)、[构建说明](./docs/BUILDING.md) 和 [LICENSE](./LICENSE)。iOS 版本仍在开发中。
 </details>
 
 <details>
 <summary>安装包为什么比 Android Studio 的 Debug 包小？</summary>
 
-Release 包开启 R8 代码压缩与资源裁剪，并裁剪调试符号；Debug 包保留调试信息且不裁剪，因此约 75MB。当前签名 APK 约 53MB。
+Release 包开启 R8 代码压缩与资源裁剪，并裁剪调试符号。当前 v1.0.12 正式安装包约 96 MB，具体大小与 SHA-256 见发布页。
 </details>
 
 ## 关于 DeepSeek Harness 的权利声明
@@ -186,15 +186,20 @@ DSHarness Go 是第三方开发的移动端生态客户端，**不是 DeepSeek �
 - 更新日志：[CHANGELOG.md](./CHANGELOG.md)
 - 问题反馈：<https://github.com/mionio233-collab/dsharness-go/issues>
 
-## 开源计划
+## 开发
 
-当前 App 源码为私有仓库，官方只分发签名 APK。**计划在 iOS 版本开发完成后，将 Android 与 iOS 源码同步开源**；届时会公布开源仓库地址、许可证与迁移说明。
+源码使用 Kotlin 与 Jetpack Compose，依赖通过 Gradle 管理。环境准备和本地构建步骤见 [docs/BUILDING.md](./docs/BUILDING.md)。
 
+```bash
+./gradlew :app:assembleDebug
+./gradlew :app:testDebugUnitTest
+```
 
+欢迎通过 Issues 报告问题，或提交 Pull Request 参与改进。请勿在 Issue、日志或代码中提交 API Key、令牌或个人数据。
 
 ## 许可
 
-DSHarness Go 为专有软件，保留所有权利；源码不公开，官方仅分发签名 APK。
+本仓库代码采用 **GNU AGPL-3.0**，见 [LICENSE](./LICENSE)。项目源自 [Hakunm/dsh-android-app](https://github.com/Hakunm/dsh-android-app)，版权与第三方声明见 [NOTICE](./NOTICE)。商标、名称及第三方素材的权利归各自权利人所有。
 
 
 第三方组件（llama.cpp、stable-diffusion.cpp、multiplatform-markdown-renderer、DeepSeek Harness 相关素材等）

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="phone_overlay_title">Phone task status · edge light</string>
+    <string name="phone_overlay_compact">Show compact status</string>
+    <string name="phone_overlay_edge">Show flowing edge light</string>
+    <string name="phone_overlay_low_motion">Low motion (static light)</string>
+    <string name="phone_overlay_opacity">Opacity %1$d%% · no capture needed</string>
+    <string name="phone_overlay_preview">Safe preview of all states (no actions)</string>
+    <string name="phone_overlay_preview_running">Previewing for about 25 seconds · no actions or model requests</string>
+    <string name="phone_overlay_preview_busy">Service disconnected or task active; preview unavailable</string>
+    <string name="phone_overlay_help">Thinking: blue/cyan. Executing: gold/cyan/purple. Waiting: orange. Success: green. Error: red. Cancelled: muted. Preview above other apps; touch-through and excluded from accessibility. System-disabled animations use static light.</string>
+    <string name="phone_service_connecting">Accessibility is enabled; waiting for its service to connect.</string>
+    <string name="app_name">DSHarness Go</string>
+    <string name="message_hint">Describe what you want to build, / commands, @ files or sessions</string>
+    <string name="back">Back</string>
+    <string name="confirm">Confirm</string>
+    <string name="add_custom_provider">Add custom provider</string>
+    <string name="name">Name</string>
+    <string name="hero_headline">Into the Unknown</string>
+    <string name="hero_preview">Preview</string>
+    <string name="send_message">Send message</string>
+    <string name="local_mode">On-device mode</string>
+    <string name="local_mode_subtitle">Use your own API key; requests go straight from the phone, without the desktop DSH</string>
+    <string name="local_providers">Model providers</string>
+    <string name="local_api_key">API Key</string>
+    <string name="local_base_url">Base URL</string>
+    <string name="local_protocol">Protocol</string>
+    <string name="local_testing">Testing…</string>
+    <string name="local_test_ok">Connected</string>
+    <string name="local_key_empty">Enter an API key first</string>
+    <string name="local_saved">Saved (key stored encrypted on this device)</string>
+    <string name="local_edit">Edit</string>
+    <string name="local_fetch_models">Fetch available models</string>
+    <string name="cancel">Cancel</string>
+    <string name="local_pick_models_title">Choose models to add</string>
+    <string name="local_pick_models_desc">These are the models the provider offers; check the ones you want.</string>
+    <string name="local_search_model">Search models</string>
+    <string name="local_select_all">Select all</string>
+    <string name="local_add_selected">Add selected</string>
+    <string name="local_fetched_empty">The provider returned no models</string>
+    <string name="perm_read_only">Read only</string>
+    <string name="perm_workspace_write">Write in workspace</string>
+    <string name="perm_full">Full access</string>
+    <string name="perm_auto_review">Auto</string>
+    <string name="perm_auto">Auto</string>
+    <string name="perm_denied">The current permission level does not allow this tool</string>
+    <string name="local_workspace_invalid_name">Use 1–40 characters without path separators, special characters, reserved names or a trailing dot</string>
+    <string name="delete">Delete</string>
+    <string name="local_models_configured">Configured models</string>
+    <string name="local_models_none">No model configured yet — use “Fetch available models”</string>
+    <string name="notify_channel_chat">Conversation finished</string>
+    <string name="notify_chat_done">Reply ready</string>
+    <string name="notify_chat_failed">Generation failed</string>
+    <string name="notify_chat_open">Tap to open the conversation</string>
+    <string-array name="phone_overlay_phases">
+        <item>Observing screen</item>
+        <item>Thinking</item>
+        <item>Controlling phone</item>
+        <item>Awaiting your approval</item>
+        <item>Task completed</item>
+        <item>Task incomplete</item>
+        <item>Task stopped</item>
+    </string-array>
+    <string name="phone_overlay_return">Tap to return to conversation</string>
+    <string name="phone_overlay_preview_title">%1$s · Preview, no actions</string>
+    <string name="phone_overlay_progress_fallback">Reading controls and checking the next step</string>
+    <string-array name="phone_overlay_actions">
+        <item>Checking task progress</item>
+        <item>Reading screen controls</item>
+        <item>Opening app</item>
+        <item>Tapping a control</item>
+        <item>Long pressing a control</item>
+        <item>Dragging a control</item>
+        <item>Entering text</item>
+        <item>Submitting input</item>
+        <item>Scrolling down</item>
+        <item>Scrolling up</item>
+        <item>Going back</item>
+        <item>Returning home</item>
+        <item>Swiping in authorized canvas</item>
+        <item>Drawing in authorized canvas</item>
+        <item>Tapping in authorized canvas</item>
+    </string-array>
+    <string-array name="phone_overlay_progress_examples">
+        <item>Locating the Chrome address bar</item>
+        <item>Preparing to enter a web address</item>
+        <item>Tapping Chrome · Download</item>
+        <item>Download tapped; checking page changes</item>
+        <item>Checking the action result on screen</item>
+    </string-array>
+    <string name="task_need_provider">Select a configured OpenAI-compatible provider in model settings; local tools require this protocol.</string>
+    <string name="task_need_permission">Select Full or AutoReview in the composer permission menu.</string>
+    <string name="task_need_consent">Open Phone settings to explicitly authorize phone actions.</string>
+    <string name="task_need_accessibility">Check and manually enable the accessibility service in Phone settings, then wait for it to connect.</string>
+    <string name="task_need_workspace">Current workspace is unavailable. Select an existing workspace or the local sandbox.</string>
+    <string name="task_tool_unoffered">Tool was not offered or its authorization is no longer valid</string>
+    <string name="visual_phone_consent_on">Phone task consent: allowed</string>
+    <string name="visual_os_active">Android screen sharing: active</string>
+    <string name="visual_os_inactive">Android screen sharing: inactive</string>
+    <string name="visual_starting">Starting Android screen sharing…</string>
+    <string name="visual_content_hidden">Shared content is hidden. Capture will resume when it is visible.</string>
+    <string name="visual_full_display_required">Capture needs the entire display. Stop sharing and authorize the entire screen.</string>
+    <string name="visual_stopped_system">Android ended screen sharing. Authorize again to capture; phone task consent is retained.</string>
+    <string name="visual_stopped_screen_off">Screen sharing ended when the screen turned off. Authorize again after unlocking.</string>
+    <string name="visual_start_failed">Screen sharing could not start or continue. Authorize again.</string>
+    <string name="visual_stopped_service">The capture service ended. Authorize screen sharing again.</string>
+    <string name="visual_stopped_user">Screen sharing was stopped.</string>
+    <string name="visual_reauthorize">Authorize screen sharing again</string>
+</resources>

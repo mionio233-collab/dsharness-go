@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="settings_advanced_diagnostics">Advanced diagnostics</string>
+    <string name="settings_hide_diagnostics">Hide advanced diagnostics</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="accessibility_service_description">DeepSeek AI Agent 需要此权限来自动控制您的设备，帮助您完成任务。\n\n此服务可以：\n• 读取屏幕内容\n• 执行点击和滑动操作\n• 输入文本\n\n所有操作都需要您的授权，敏感操作会进行二次确认。</string>
+    <string name="phone_control_description">通过无障碍服务读取界面并执行点击、滑动、输入等操作；屏幕截图需要单独授权。</string>
+    <string name="accessibility_not_enabled">无障碍服务未启用</string>
+    <string name="accessibility_enabled">无障碍服务已启用</string>
+    <string name="go_to_accessibility_settings">前往无障碍设置</string>
+    <string name="stop_screen_capture">停止截图</string>
+    <string name="screen_capture_denied">未授予录屏权限</string>
+    <string name="phone_command_hint">命令，例如 tap 500,800 或 taptext 设置</string>
+    <string name="phone_command_run">执行</string>
+    <string name="phone_command_result">执行结果：%1$s</string>
+    <string name="screen_capture_size">最近截图：%1$d × %2$d</string>
+    <string name="phone_read_screen">读取屏幕</string>
+    <string name="phone_unknown_command">无法识别的命令</string>
+</resources>

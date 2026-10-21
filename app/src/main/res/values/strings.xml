@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="phone_overlay_title">手机任务状态 · 屏幕边缘灯效</string>
+    <string name="phone_overlay_compact">显示简洁状态条</string>
+    <string name="phone_overlay_edge">显示流动边缘灯光</string>
+    <string name="phone_overlay_low_motion">低动态（静态灯光）</string>
+    <string name="phone_overlay_opacity">透明度 %1$d%% · 无需录屏</string>
+    <string name="phone_overlay_preview">安全预览全部状态（不执行操作）</string>
+    <string name="phone_overlay_preview_running">正在预览约 25 秒 · 不执行操作，不调用模型</string>
+    <string name="phone_overlay_preview_busy">服务未连接或任务正在运行，无法预览</string>
+    <string name="phone_overlay_help">思考蓝青、执行金青紫、等待橙、成功绿、失败红、取消灰。可在其他应用上预览；触摸穿透，不进入无障碍树。系统关闭动画时自动静态显示。</string>
+    <string name="phone_service_connecting">无障碍已开启，正在等待服务连接。</string>
+    <string name="app_name">DSHarness Go</string>
+    <string name="message_hint">描述你想要构建的内容, / 调用指令, @ 文件或对话</string>
+    <string name="back">返回</string>
+    <string name="confirm">确认</string>
+    <string name="add_custom_provider">添加自定义供应商</string>
+    <string name="name">名称</string>
+    <string name="hero_headline">探索未至之境</string>
+    <string name="hero_preview">预览版</string>
+    <string name="send_message">发送消息</string>
+    <string name="local_mode">本机模式</string>
+    <string name="local_mode_subtitle">使用你自己的 API Key，请求由手机直接发出，不依赖电脑上的 DSH</string>
+    <string name="local_providers">模型服务商</string>
+    <string name="local_api_key">API Key</string>
+    <string name="local_base_url">接口地址</string>
+    <string name="local_protocol">协议</string>
+    <string name="local_testing">正在测试…</string>
+    <string name="local_test_ok">连接成功</string>
+    <string name="local_key_empty">请先填写 API Key</string>
+    <string name="local_saved">已保存（密钥加密存储在本机）</string>
+    <string name="local_edit">编辑</string>
+    <string name="local_fetch_models">获取可用模型</string>
+    <string name="cancel">取消</string>
+    <string name="local_pick_models_title">选择要添加的模型</string>
+    <string name="local_pick_models_desc">以下是模型提供商的可用模型，勾选要添加的模型。</string>
+    <string name="local_search_model">搜索模型</string>
+    <string name="local_select_all">全选</string>
+    <string name="local_add_selected">添加所选</string>
+    <string name="local_fetched_empty">服务商没有返回任何模型</string>
+    <string name="perm_read_only">仅可查看</string>
+    <string name="perm_workspace_write">工作区内修改</string>
+    <string name="perm_full">完全权限</string>
+    <string name="perm_auto_review">自动</string>
+    <string name="perm_auto">自动</string>
+    <string name="perm_denied">当前权限级别不允许调用该工具</string>
+    <string name="local_workspace_invalid_name">名称须为 1–40 个字符，不能包含路径分隔符、特殊字符、保留名称或以句点结尾</string>
+    <string name="delete">删除</string>
+    <string name="local_models_configured">已配置模型</string>
+    <string name="local_models_none">尚未配置模型，可先「获取可用模型」</string>
+    <string name="notify_channel_chat">对话完成提醒</string>
+    <string name="notify_chat_done">回复已生成</string>
+    <string name="notify_chat_failed">生成失败</string>
+    <string name="notify_chat_open">点按查看对话</string>
+    <string-array name="phone_overlay_phases">
+        <item>正在观察屏幕</item>
+        <item>正在思考</item>
+        <item>正在操作手机</item>
+        <item>等待你的批准</item>
+        <item>任务已完成</item>
+        <item>任务未完成</item>
+        <item>任务已停止</item>
+    </string-array>
+    <string name="phone_overlay_return">点击返回对话</string>
+    <string name="phone_overlay_preview_title">%1$s · 预览，无操作</string>
+    <string name="phone_overlay_progress_fallback">正在读取控件并检查下一步操作</string>
+    <string-array name="phone_overlay_actions">
+        <item>检查任务进度</item>
+        <item>读取页面控件</item>
+        <item>打开应用</item>
+        <item>点击页面控件</item>
+        <item>长按页面控件</item>
+        <item>拖动页面控件</item>
+        <item>输入文本</item>
+        <item>提交输入</item>
+        <item>向下滚动</item>
+        <item>向上滚动</item>
+        <item>返回上一页</item>
+        <item>返回桌面</item>
+        <item>在授权画布中滑动</item>
+        <item>在授权画布中绘画</item>
+        <item>在授权画布中点击</item>
+    </string-array>
+    <string-array name="phone_overlay_progress_examples">
+        <item>正在查找 Chrome 地址栏</item>
+        <item>准备输入网址打开页面</item>
+        <item>正在点击 Chrome · 下载按钮</item>
+        <item>已点击下载，正在检查页面变化</item>
+        <item>正在核对页面中的操作结果</item>
+    </string-array>
+    <string name="task_need_provider">请在模型设置中选择已配置的 OpenAI 兼容服务商；此协议才支持本机工具。</string>
+    <string name="task_need_permission">请在输入框的权限菜单中选择完整或自动审核权限。</string>
+    <string name="task_need_consent">请打开手机操控设置，明确授权手机操作。</string>
+    <string name="task_need_accessibility">请在手机操控设置中检查并手动开启无障碍服务，等待服务连接。</string>
+    <string name="task_need_workspace">当前工作区不可用，请选择已有工作区或本机沙箱。</string>
+    <string name="task_tool_unoffered">此工具未提供或当前授权已失效</string>
+    <string name="visual_phone_consent_on">手机任务授权：已允许</string>
+    <string name="visual_os_active">Android 屏幕共享：进行中</string>
+    <string name="visual_os_inactive">Android 屏幕共享：未开启</string>
+    <string name="visual_starting">正在启动 Android 屏幕共享…</string>
+    <string name="visual_content_hidden">共享内容暂不可见，恢复可见后可继续截取。</string>
+    <string name="visual_full_display_required">截取需要整个屏幕。请停止共享并重新授权共享整个屏幕。</string>
+    <string name="visual_stopped_system">Android 已结束屏幕共享。请重新授权截取；手机任务授权仍保留。</string>
+    <string name="visual_stopped_screen_off">屏幕关闭时共享已结束。解锁后请重新授权。</string>
+    <string name="visual_start_failed">屏幕共享无法启动或继续，请重新授权。</string>
+    <string name="visual_stopped_service">截取服务已结束，请重新授权屏幕共享。</string>
+    <string name="visual_stopped_user">屏幕共享已停止。</string>
+    <string name="visual_reauthorize">重新授权屏幕共享</string>
+</resources>

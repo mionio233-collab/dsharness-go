@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="local_delete_provider_title">Delete model provider?</string>
+    <string name="local_delete_provider_message">Delete “%1$s” and its local API configuration? Chat history and generated files will remain. Automation tasks bound to this provider will no longer be able to use it.</string>
+</resources>

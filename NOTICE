@@ -1,0 +1,13 @@
+DSHarness Go is derived from dsh-android-app.
+Original author: Github@Hakunm (https://github.com/Hakunm)
+Upstream: https://github.com/Hakunm/dsh-android-app
+Licensed under GNU AGPL-3.0. See LICENSE.
+Modified by 厦门梦更达科技有限公司.
+
+The DeepSeek fish/whale logo path originates from deepseek-ai/deepseek-harness
+apps/web/public/favicon.svg. Copyright (c) 2026 DeepSeek, MIT License.
+See THIRD_PARTY_LICENSES/DEEPSEEK_HARNESS_LICENSE.
+
+Montserrat font: SIL Open Font License. See THIRD_PARTY_LICENSES/.
+AndroidX, Kotlin, kotlinx.serialization, kotlinx.coroutines, OkHttp and other
+dependencies retain their respective licenses and copyright notices.

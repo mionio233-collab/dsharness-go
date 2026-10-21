@@ -23,8 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Stage static site
+        run: |
+          mkdir -p _site
+          cp index.html en.html terms.html styles.css main.js CNAME robots.txt sitemap.xml _site/
+          cp -R assets _site/assets
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

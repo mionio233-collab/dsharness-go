@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="visual_title">Optional visual fallback</string>
+    <string name="visual_help">Accessibility nodes are the default. After you enable visual mode and grant system consent, AI captures only on an observation request and sends a temporary image to your current local model provider; no continuous uploads. Login, password, OTP, payment, protected and ambiguous screens are refused. Images stay out of history and exports. Task completion, stop, lock or grant revocation ends the session; a fresh grant is required next time. Complete image-only targets manually when safe semantic actions are unavailable.</string>
+    <string name="visual_need_phone_consent">First enable phone control in the conversation panel with Full or AutoReview and an OpenAI-compatible provider.</string>
+    <string name="visual_enabled">Visual authorized · awaiting observation request</string>
+    <string name="visual_enable_action">Authorize this visual session</string>
+    <string-array name="phone_observation_modes">
+        <item>Accessibility</item>
+        <item>Visual</item>
+        <item>Hybrid</item>
+    </string-array>
+</resources>

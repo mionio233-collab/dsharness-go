@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="local_delete_provider_title">删除模型供应商？</string>
+    <string name="local_delete_provider_message">确定删除“%1$s”及其本地 API 配置吗？聊天记录和生成文件会保留。绑定此供应商的自动化任务将无法继续调用它。</string>
+</resources>

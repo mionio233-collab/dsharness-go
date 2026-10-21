@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="accessibility_service_description">DeepSeek AI Agent needs this permission to control your device automatically.\n\nThis service can:\n• Read screen content\n• Perform taps and swipes\n• Type text\n\nEvery action requires your authorization; sensitive actions ask for confirmation.</string>
+    <string name="phone_control_description">Read the UI through the accessibility service and tap, swipe or type. Screen capture needs a separate grant.</string>
+    <string name="accessibility_not_enabled">Accessibility service is off</string>
+    <string name="accessibility_enabled">Accessibility service is on</string>
+    <string name="go_to_accessibility_settings">Open accessibility settings</string>
+    <string name="stop_screen_capture">Stop capture</string>
+    <string name="screen_capture_denied">Screen capture permission denied</string>
+    <string name="phone_command_hint">Command, e.g. tap 500,800 or taptext Settings</string>
+    <string name="phone_command_run">Run</string>
+    <string name="phone_command_result">Result: %1$s</string>
+    <string name="screen_capture_size">Last screenshot: %1$d × %2$d</string>
+    <string name="phone_read_screen">Read screen</string>
+    <string name="phone_unknown_command">Unrecognized command</string>
+</resources>
