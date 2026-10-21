@@ -179,58 +179,171 @@
       </div>
     </section>
 
-    <!-- CAPABILITIES -->
-    <section class="section" id="features">
+<section class="section" id="features">
       <div class="ds-container">
         <div class="section-heading center">
-          <h2 class="heading1">Expand what you can do, on your terms</h2>
-          <p class="body-desc">连接、对话、本地模型、生图、Plugins与手机自动化，一个 App 全部装下。</p>
+          <h2 class="heading1">Capabilities that keep expanding</h2>
+          <p class="body-desc">Connect, chat, run local models, generate images, extend with plugins and automate your phone — all in one app.</p>
         </div>
 
-        <div class="cap-grid">
-          <article class="cap-card">
+        <div class="cap-grid cap-grid-motion">
+          <article class="cap-card cap-card-motion" data-motion-card>
             <div class="cap-copy">
+              <p class="cap-kicker">01 / Connect</p>
               <h3 class="subtitle">Continue desktop work</h3>
-              <p class="body-desc">Connect to desktop Harness over LAN or account relay, then keep chatting and tracking tasks with the same model and project context.</p>
+              <p class="body-desc">Connect to Harness on your computer over LAN or the same account. Keep chatting, check task progress, and use the same model and project context.</p>
             </div>
-            <figure class="cap-media">
-              <div class="cap-phone"><img src="assets/screenshots/chat.jpg" alt="对话与Remote connection" loading="lazy"></div>
-            </figure>
+            <div class="motion-stage">
+              <div class="scene scene-remote">
+                <div class="sr-glow"></div>
+                <div class="sr-desk">
+                  <div class="sr-bar">
+                    <span class="sr-dots"><i></i><i></i><i></i></span>
+                    <span class="sr-title">DeepSeek Harness</span>
+                    <span class="sr-tag">桌面端</span>
+                  </div>
+                  <div class="sr-desk-body">
+                    <div class="sr-side">
+                      <span class="sr-line w70"></span>
+                      <span class="sr-line w50"></span>
+                      <span class="sr-ws">默认工作区</span>
+                      <span class="sr-line w80"></span>
+                      <span class="sr-line w65"></span>
+                      <span class="sr-line w75"></span>
+                    </div>
+                    <div class="sr-chat">
+                      <div class="sr-bubble sr-user">Turn last week's notes into a report</div>
+                      <div class="sr-bubble sr-bot"><span class="sr-lines"><i></i><i></i><i></i></span></div>
+                      <div class="sr-task">
+                        <span>Generate report</span>
+                        <span class="sr-taskbar"><i></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sr-beam"><i></i></div>
+                <div class="sr-phone">
+                  <div class="sr-notch"></div>
+                  <div class="sr-pscreen">
+                    <div class="sr-phead">DSHarness Go <span class="sr-conn">Connected</span></div>
+                    <div class="sr-pmsg sr-pmsg-user">Make this report into slides</div>
+                    <div class="sr-pmsg sr-pmsg-bot"><i></i><i></i><i></i></div>
+                    <div class="sr-pinput">Message…</div>
+                  </div>
+                </div>
+                <span class="sr-float sr-float-a">Same workspace</span>
+                <span class="sr-float sr-float-b">Context in sync</span>
+              </div>
+              <button class="motion-pause" type="button" data-motion-toggle aria-label="Pause motion">
+                <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
+                <svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor" stroke="none"/></svg>
+              </button>
+              <span class="motion-label">Motion demo</span>
+            </div>
           </article>
 
-          <article class="cap-card">
+          <article class="cap-card cap-card-motion" data-motion-card>
             <div class="cap-copy">
+              <p class="cap-kicker">02 / Local</p>
               <h3 class="subtitle">Offline GGUF models</h3>
-              <p class="body-desc">Built-in llama.cpp inference. Download or import GGUF models and chat offline, with vision and multimodal input supported.</p>
+              <p class="body-desc">Built-in llama.cpp inference. Download or import GGUF models and chat without a network; vision and multimodal input supported.</p>
             </div>
-            <figure class="cap-media">
-              <div class="cap-phone"><img src="assets/screenshots/local-models.jpg" alt="本地模型" loading="lazy"></div>
-            </figure>
+            <div class="motion-stage">
+              <div class="scene scene-local">
+                <div class="sl-glow"></div>
+                <div class="sl-phone">
+                  <div class="sl-head"><span>Local model</span><span class="sl-offline">Airplane mode</span></div>
+                  <div class="sl-model">
+                    <div class="sl-model-top"><b>Llama 3.2 3B</b><span>GGUF</span></div>
+                    <div class="sl-bar"><i></i></div>
+                    <div class="sl-meta"><span>On-device · Ready</span><b>100%</b></div>
+                  </div>
+                  <div class="sl-chat">
+                    <div class="sl-msg sl-msg-user">Summarize these meeting notes</div>
+                    <div class="sl-msg sl-msg-bot"><i></i><i></i><i></i><i></i></div>
+                  </div>
+                  <div class="sl-foot"><span class="sl-local-badge">On-device</span><span class="sl-speed">18 tok/s</span></div>
+                </div>
+                <div class="sl-pill">Works offline</div>
+                <div class="sl-chip sl-chip-a">GGUF imported</div>
+                <div class="sl-chip sl-chip-b">No network needed</div>
+              </div>
+              <button class="motion-pause" type="button" data-motion-toggle aria-label="Pause motion">
+                <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
+                <svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor" stroke="none"/></svg>
+              </button>
+              <span class="motion-label">Motion demo</span>
+            </div>
           </article>
 
-          <article class="cap-card">
+          <article class="cap-card cap-card-motion" data-motion-card>
             <div class="cap-copy">
+              <p class="cap-kicker">03 / Create</p>
               <h3 class="subtitle">On-device image generation</h3>
-              <p class="body-desc">Built-in stable-diffusion.cpp generates images locally on your phone; OpenAI Images compatible endpoints are supported too.</p>
+              <p class="body-desc">Built-in stable-diffusion.cpp generates images entirely on the phone; OpenAI Images-compatible endpoints are also supported, so images never need to leave the device.</p>
             </div>
-            <figure class="cap-media">
-              <div class="cap-phone"><img src="assets/screenshots/multimodal.jpg" alt="多模态与On-device image generation" loading="lazy"></div>
-            </figure>
+            <div class="motion-stage">
+              <div class="scene scene-image">
+                <div class="si-glow"></div>
+                <div class="si-top">
+                  <span class="si-prompt"><span class="si-typing">An astronaut cat, cinematic</span><i class="si-caret"></i></span>
+                  <span class="si-btn">Generate</span>
+                </div>
+                <div class="si-grid">
+                  <i class="si-tile t1"></i><i class="si-tile t2"></i><i class="si-tile t3"></i><i class="si-tile t4"></i>
+                </div>
+                <div class="si-steps"><i></i><i></i><i></i><i></i></div>
+                <div class="si-badge">本地Generate · 未上传</div>
+              </div>
+              <button class="motion-pause" type="button" data-motion-toggle aria-label="Pause motion">
+                <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
+                <svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor" stroke="none"/></svg>
+              </button>
+              <span class="motion-label">Motion demo</span>
+            </div>
           </article>
 
-          <article class="cap-card">
+          <article class="cap-card cap-card-motion" data-motion-card>
             <div class="cap-copy">
-              <h3 class="subtitle">Phone agent</h3>
-              <p class="body-desc">Built on Android accessibility: observe, tap, type, gesture and capture screenshots so the model can operate your phone. Sensitive pages are never uploaded.</p>
+              <p class="cap-kicker">04 / Automation</p>
+              <h3 class="subtitle">Phone Agent</h3>
+              <p class="body-desc">Android Accessibility: observe the screen, tap, type, gesture and capture; let the model operate your phone. Sensitive pages are never uploaded.</p>
             </div>
-            <figure class="cap-media">
-              <div class="cap-phone"><img src="assets/screenshots/phone-control.jpg" alt="手机控制与无障碍授权" loading="lazy"></div>
-            </figure>
+            <div class="motion-stage">
+              <div class="scene scene-agent">
+                <div class="sa-glow"></div>
+                <div class="sa-phone">
+                  <div class="sa-notch"></div>
+                  <div class="sa-screen">
+                    <div class="sa-status"><span>9:41</span><span class="sa-authed">Accessibility on</span></div>
+                    <div class="sa-appbar">Schedule</div>
+                    <div class="sa-item"><i></i><span>Product review</span><em>10:30</em></div>
+                    <div class="sa-item"><i></i><span>Report cleanup</span><em>14:00</em></div>
+                    <div class="sa-item"><i></i><span>Project sync</span><em>17:30</em></div>
+                    <div class="sa-hl sa-hl-1"></div>
+                    <div class="sa-hl sa-hl-2"></div>
+                    <div class="sa-cursor"></div>
+                    <div class="sa-ripple"></div>
+                  </div>
+                </div>
+                <div class="sa-panel">
+                  <div class="sa-panel-head">Agent running</div>
+                  <div class="sa-step"><b>01</b><span>打开Schedule应用</span><i></i></div>
+                  <div class="sa-step"><b>02</b><span>Read today's schedule</span><i></i></div>
+                  <div class="sa-step"><b>03</b><span>Organize and archive</span><i></i></div>
+                </div>
+                <div class="sa-shield">Sensitive pages skipped</div>
+              </div>
+              <button class="motion-pause" type="button" data-motion-toggle aria-label="Pause motion">
+                <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
+                <svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor" stroke="none"/></svg>
+              </button>
+              <span class="motion-label">Motion demo</span>
+            </div>
           </article>
         </div>
       </div>
     </section>
-
     <!-- MODES -->
     <section class="section section-tight" id="modes">
       <div class="ds-container">

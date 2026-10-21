@@ -63,7 +63,7 @@
 
   // Gentle entrance for key blocks.
   if ('IntersectionObserver' in window) {
-    const targets = document.querySelectorAll('.hero-head, .hero-preview, .section-heading, .cap-card, .mode-card, .showcase-card, .join-inner');
+    const targets = document.querySelectorAll('.hero-head, .hero-preview, .section-heading, .cap-card:not(.cap-card-motion), .mode-card, .showcase-card, .join-inner');
     targets.forEach((el) => el.classList.add('reveal'));
     const io = new IntersectionObserver(
       (entries) => {
@@ -224,5 +224,47 @@
       });
     }
     if (jReduce) jdraw(0); else requestAnimationFrame(jtick);
+  }
+
+  // Animated capability cards: reveal on scroll, pause offscreen/hover, reduced-motion fallback.
+  const motionCards = Array.from(document.querySelectorAll('[data-motion-card]'));
+  if (motionCards.length) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const isEnglish = document.documentElement.lang === 'en';
+    motionCards.forEach((card) => {
+      const toggle = card.querySelector('[data-motion-toggle]');
+      let visible = false;
+      let userPaused = false;
+
+      const sync = () => {
+        const isVisible = visible || reduceMotion.matches;
+        card.classList.toggle('is-inview', isVisible);
+        const running = isVisible && !userPaused && !reduceMotion.matches;
+        card.classList.toggle('is-running', running);
+        card.classList.toggle('is-paused', userPaused || reduceMotion.matches);
+        if (toggle) {
+          toggle.setAttribute('aria-label', userPaused ? (isEnglish ? 'Play motion' : '播放动效') : (isEnglish ? 'Pause motion' : '暂停动效'));
+          toggle.setAttribute('aria-pressed', String(userPaused));
+        }
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) visible = entry.isIntersecting;
+        sync();
+      }, { threshold: 0.25 });
+      observer.observe(card);
+
+      toggle?.addEventListener('click', () => {
+        userPaused = !userPaused;
+        sync();
+      });
+      reduceMotion.addEventListener('change', sync);
+      sync();
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) card.classList.remove('is-running');
+        else sync();
+      });
+    });
   }
 })();
