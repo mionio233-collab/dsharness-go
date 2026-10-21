@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DSHarness Go — The mobile side of DeepSeek Harness</title>
+  <meta name="description" content="DSHarness Go is the mobile client for DeepSeek Harness: continue desktop sessions from your phone, or run local API providers, offline GGUF models and on-device image generation. Native Android, no Ubuntu emulator, no root.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://dsharnessgo.top/en.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dsharnessgo.top/en.html">
+  <meta property="og:title" content="DSHarness Go — The mobile side of DeepSeek Harness">
+  <meta property="og:description" content="DeepSeek Harness in your pocket: continue desktop sessions, or run local API / offline GGUF / on-device image generation.">
+  <meta property="og:image" content="https://dsharnessgo.top/assets/screenshots/home.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/app-icon-tile.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-bar" id="headerBar">
+      <div class="header-left">
+        <a class="brand" href="#top" aria-label="DSHarness Go 首页">
+          <img class="brand-icon" src="assets/app-icon-tile.png" alt="" width="28" height="28">
+          <span class="brand-name">DSHarness</span>
+          <span class="brand-chip">GO</span>
+        </a>
+        <span class="preview-label scrolled-only">Preview</span>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-secondary btn-github scrolled-only" href="https://github.com/mionio233-collab/dsharness-go" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.15c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.12 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.26 5.69.41.35.78 1.05.78 2.12v3.14c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a class="btn btn-primary btn-download scrolled-only" href="#download">Download<span class="chev"></span></a>
+        <div class="locale-toggle top-only" role="group" aria-label="Language">
+          <button type="button" class="locale-item" data-locale="zh">中文</button>
+          <button type="button" class="locale-item is-active" data-locale="en">EN</button>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu-head">
+        <a class="brand" href="#top">
+          <img class="brand-icon" src="assets/app-icon-tile.png" alt="" width="26" height="26">
+          <span class="brand-name">DSHarness</span>
+          <span class="brand-chip">GO</span>
+        </a>
+        <button class="menu-close" id="menuClose" aria-label="关闭">×</button>
+      </div>
+      <nav class="mobile-menu-body">
+        <a href="#features">Capabilities</a>
+        <a href="#modes">How it works</a>
+        <a href="#plugins">Plugins</a>
+        <a href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+        <a class="mobile-download" href="https://github.com/mionio233-collab/dsharness-go/releases/latest" target="_blank" rel="noopener">Download Android APK</a>
+      </nav>
+      <div class="mobile-lang">
+        <button type="button" class="locale-item is-active" data-locale="zh">中文</button>
+        <button type="button" class="locale-item is-active" data-locale="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="ds-container hero-inner">
+        <div class="hero-head">
+          <span class="hero-eyebrow"><span class="spark" aria-hidden="true">✦</span>PREVIEW</span>
+          <h1 class="hero-title"><span class="latin">DeepSeek Harness</span><br>Now, in your pocket</h1>
+          <div class="hero-desc">
+            <p>Pick up unfinished desktop work without opening your computer.</p>
+            <p>DSHarness Go is a native Android client for DeepSeek Harness: continue conversations from your phone, or run local models, image generation and phone agents on-device.</p>
+          </div>
+          <a class="btn btn-primary btn-hero" href="#download">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            Download for Android
+            <span class="chev"></span>
+          </a>
+          <p class="hero-note">Android preview available · iOS in development</p>
+        </div>
+
+        <div class="hero-preview">
+          <div class="sync-scene">
+            <div class="sync-desktop">
+              <aside class="app-sidebar" aria-hidden="true">
+                <div class="app-windowbar">
+                  <span class="traffic"><i></i><i></i><i></i></span>
+                  <span class="app-panel-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="9" rx="1.5"/><path d="M10 3.5v9"/></svg></span>
+                </div>
+                <div class="native-brand">
+                  <img class="native-logo" src="assets/deepseek-harness-logo.svg" alt="DeepSeek Harness">
+                </div>
+                <button class="app-newchat" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5v9M3.5 8h9"/></svg> 新会话</button>
+                <div class="app-nav">
+                  <div class="app-nav-item"><span class="ai"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2.5v2M10 2.5v2M4 4.5h8v3.5a4 4 0 0 1-8 0z"/><path d="M8 12v1.5"/></svg></span>插件</div>
+                  <div class="app-nav-item"><span class="ai"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.2"/><path d="M8 5v3.3l2 1.2"/></svg></span>自动化任务</div>
+                </div>
+                <div class="app-ws-head"><span>工作区</span><span class="app-ws-icons"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4"/><path d="M10 10l3 3"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M3 11l2 2 2-2M11 13V3M9 5l2-2 2 2"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/><path d="M8 8.2v3M6.5 9.7h3"/></svg></span></div>
+                <div class="app-ws active"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 默认工作区</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 认识 DeepSeek Harness</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 生成 Q3 数据汇总 PPT</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 准备明天评审会的议题清单</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 给销售报表补上同比/环比列</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 数据分析项目</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> DSH 插件开发</div>
+                <div class="sidebar-plugin">
+                  <img src="assets/plugin-dsh-go.png" alt="DSHarness Go 互联插件">
+                  <span class="plugin-installed"><i></i>已安装</span>
+                </div>
+                <div class="app-user"><span class="app-avatar"></span> DeepSeek</div>
+              </aside>
+              <div class="app-chat">
+                <div class="app-chat-head">
+                  <span>在吗你能帮我做什么?</span>
+                  <span class="app-chat-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="9" rx="1.5"/><path d="M10 3.5v9"/></svg></span>
+                </div>
+                <div class="app-chat-body native-chat">
+                  <div class="app-msg-user">在吗你能帮我做什么?</div>
+                  <div class="app-thinking">已思考 ›</div>
+                  <div class="app-bot">
+                    <p>在的，我说一下我能帮你做什么 👋</p>
+                    <p class="app-sec">写代码 / 做页面</p>
+                    <ul>
+                      <li>写前端页面、HTML/CSS/JS 小组件，默认按手机屏幕尺寸来做</li>
+                      <li>写脚本、改 bug、解释代码、做小工具</li>
+                      <li>可以直接把文件写入工作区，方便你查看或拿去用</li>
+                    </ul>
+                    <p class="app-sec">做 DSH Go 手机插件</p>
+                    <ul>
+                      <li>生成插件 JSON 包（主题配色、背景图、桌面宠物、自定义指令文本）</li>
+                      <li>你会拿到一个 &lt;id&gt;.dshgo.json，自己在 App 的「插件 → 创建/安装」里预览并安装</li>
+                      <li>说明一下：我只能生成文件，<strong>不会自动装上、也不会上架</strong></li>
+                    </ul>
+                    <p class="app-sec">查资料 / 处理文字</p>
+                    <ul>
+                      <li>读取你给的文本文件、抓取网页内容做整理总结</li>
+                      <li>翻译、润色、写文案、列大纲、做计划</li>
+                    </ul>
+                    <p class="app-sec">画图</p>
+                    <ul>
+                      <li>用本机图片模型生成插画/图标（提示词得用英文，我会帮你翻译）</li>
+                    </ul>
+                    <p class="app-sec">做不了的事</p>
+                    <ul>
+                      <li>不能联网装软件、不能访问你手机里的相册/通讯录、不能替你在 App 里点安装。</li>
+                    </ul>
+                    <p>想从哪个开始？比如你可以直接说「帮我做一个番茄钟页面」或者「做个猫咪桌宠插件」，我就直接开工 🙂</p>
+                  </div>
+                </div>
+                <div class="app-input">
+                  <div class="app-input-ph">Ask anything or describe a task…</div>
+                  <div class="app-input-row">
+                    <span class="app-plus"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5v9M3.5 8h9"/></svg></span>
+                    <span class="app-shield">◈ Workspaces内修改 ⌄</span>
+                    <span class="app-model">Qwen3.8-Flash High ⌄</span>
+                    <span class="app-send">↑</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sync-phone">
+              <div class="sync-phone-frame"><img src="assets/screenshots/phone-native.jpg" alt="DSH Go phone view" loading="eager"></div>
+              <div class="sync-badge"><i></i>Messages synced</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section" id="features">
+      <div class="ds-container">
+        <div class="section-heading center">
+          <h2 class="heading1">Expand what you can do, on your terms</h2>
+          <p class="body-desc">连接、对话、本地模型、生图、Plugins与手机自动化，一个 App 全部装下。</p>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap-card">
+            <div class="cap-copy">
+              <h3 class="subtitle">Continue desktop work</h3>
+              <p class="body-desc">Connect to desktop Harness over LAN or account relay, then keep chatting and tracking tasks with the same model and project context.</p>
+            </div>
+            <figure class="cap-media">
+              <div class="cap-phone"><img src="assets/screenshots/chat.jpg" alt="对话与Remote connection" loading="lazy"></div>
+            </figure>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-copy">
+              <h3 class="subtitle">Offline GGUF models</h3>
+              <p class="body-desc">Built-in llama.cpp inference. Download or import GGUF models and chat offline, with vision and multimodal input supported.</p>
+            </div>
+            <figure class="cap-media">
+              <div class="cap-phone"><img src="assets/screenshots/local-models.jpg" alt="本地模型" loading="lazy"></div>
+            </figure>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-copy">
+              <h3 class="subtitle">On-device image generation</h3>
+              <p class="body-desc">Built-in stable-diffusion.cpp generates images locally on your phone; OpenAI Images compatible endpoints are supported too.</p>
+            </div>
+            <figure class="cap-media">
+              <div class="cap-phone"><img src="assets/screenshots/multimodal.jpg" alt="多模态与On-device image generation" loading="lazy"></div>
+            </figure>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-copy">
+              <h3 class="subtitle">Phone agent</h3>
+              <p class="body-desc">Built on Android accessibility: observe, tap, type, gesture and capture screenshots so the model can operate your phone. Sensitive pages are never uploaded.</p>
+            </div>
+            <figure class="cap-media">
+              <div class="cap-phone"><img src="assets/screenshots/phone-control.jpg" alt="手机控制与无障碍授权" loading="lazy"></div>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODES -->
+    <section class="section section-tight" id="modes">
+      <div class="ds-container">
+        <div class="section-heading">
+          <h2 class="heading1">One app, two ways to work</h2>
+          <p class="body-desc">Connect to your computer or run everything on the phone. Switch anytime, no reinstall.</p>
+        </div>
+        <div class="mode-grid">
+          <article class="mode-card">
+            <h3 class="subtitle">Remote connection</h3>
+            <p class="body-desc">电脑端启用互联Plugins，扫码或同账号配对。手机端继续桌面对话、回答电脑端的提问卡片，模型与项目上下文保持一致。</p>
+            <div class="mode-chips">
+              <span>局域网 / 中继</span><span>断线重连</span><span>增量同步</span>
+            </div>
+          </article>
+          <article class="mode-card">
+            <h3 class="subtitle">Run on the phone</h3>
+            <p class="body-desc">No computer required. Configure your own API providers or download local models; image generation and automation run on-device. No Ubuntu emulator, no root.</p>
+            <div class="mode-chips">
+              <span>OpenAI / Anthropic 兼容</span><span>离线 GGUF</span><span>On-device image generation</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLUGINS SHOWCASE -->
+    <section class="section" id="plugins">
+      <div class="ds-container">
+        <article class="showcase-card">
+          <div class="showcase-copy">
+            <h2 class="heading1">一切皆Plugins</h2>
+            <p class="body-desc">安装现有Plugins，或用Plugins组合自己的Workspaces、主题、技能和Screens。DSH Go Plugins商城随 App 提供示例Plugins，也可以接入自己的 HTTPS 商城目录。</p>
+            <ul class="check-list">
+              <li>安装、启用、禁用与组合Plugins</li>
+              <li>自定义商城目录，接入团队内部Plugins</li>
+              <li>Plugins与手机Capabilities（文件、通知、自动化）打通</li>
+            </ul>
+          </div>
+          <figure class="showcase-media">
+            <div class="showcase-phone"><img src="assets/screenshots/plugins.jpg" alt="DSH Go Plugins商城" loading="lazy"></div>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONNECT PLUGIN -->
+    <section class="section" id="connect">
+      <div class="ds-container">
+        <div class="section-heading">
+          <h2 class="heading1">Connect to desktop: install the DSH Go bridge</h2>
+          <p class="body-desc">Install the bridge plugin in desktop DeepSeek Harness, then continue workspaces, sessions and tasks from your phone over LAN or the same account.</p>
+        </div>
+        <div class="connect-grid">
+          <div class="connect-card">
+            <h3 class="subtitle">One-click install</h3>
+            <p class="body-desc">Search for <code>dsh-go-workspace</code> in the DSH plugin page, or run:</p>
+            <div class="code-block">
+              <code id="pluginInstallCmd">dsh plugin --profile web add dsh-go-workspace</code>
+              <button class="copy-btn" id="copyInstallCmd" type="button">Copy</button>
+            </div>
+            <p class="connect-note">In DSH Desktop, use the in-app plugin page; the CLI command is for the web profile.</p>
+          </div>
+          <div class="connect-card">
+            <h3 class="subtitle">How to connect</h3>
+            <ol class="steps-list">
+              <li>Install and enable <b>DSH Go-workspace</b></li>
+              <li>Open <b>DSHarness Go bridge</b> and enable LAN access</li>
+              <li>Generate pairing information or a QR code on desktop</li>
+              <li>On the phone open Settings → Connection and scan or pair</li>
+            </ol>
+            <a class="text-link" href="https://xiamen-menggenda-technology-co-ltd.github.io/DSH-Go-workspace-site/" target="_blank" rel="noopener">Plugin install &amp; tutorial <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN SOURCE PLAN -->
+    <section class="section" id="open-source">
+      <div class="ds-container">
+        <div class="os-card">
+          <div class="os-head">
+            <p class="eyebrow">OPEN SOURCE</p>
+            <h2 class="heading1">Open source plan</h2>
+            <p class="body-desc">The source is currently private and only signed APKs are distributed. <strong>After the iOS release, the Android and iOS sources will be open-sourced together.</strong></p>
+          </div>
+          <ol class="os-timeline">
+            <li class="is-done"><span>01</span><b>Android preview</b><em>Released</em></li>
+            <li class="is-now"><span>02</span><b>iOS version</b><em>In development</em></li>
+            <li><span>03</span><b>Open source release</b><em>After iOS</em></li>
+          </ol>
+          <p class="os-note">The repository, license and migration notes will be announced then.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN / DOWNLOAD -->
+    <section class="join" id="download">
+      <canvas class="join-canvas" id="joinCanvas" aria-hidden="true"></canvas>
+      <div class="join-glow" aria-hidden="true"></div>
+      <div class="ds-container join-inner">
+        <h2 class="heading1">Join the DSH mobile ecosystem</h2>
+        <p class="body-desc join-desc">Download the Android preview APK to connect to desktop Harness or run independently. iOS is in development.</p>
+        <div class="join-actions">
+          <a class="btn btn-primary btn-lg" href="https://github.com/mionio233-collab/dsharness-go/releases/latest" target="_blank" rel="noopener">Download Android APK</a>
+          <a class="btn btn-secondary btn-lg" href="https://github.com/mionio233-collab/dsharness-go/releases" target="_blank" rel="noopener">All releases</a>
+          <a class="btn btn-ghost btn-lg" href="./terms.html">Terms</a>
+        </div>
+        <div class="join-platforms">
+          <div class="platform"><span class="platform-k">ANDROID</span><b>Preview available</b><span>arm64-v8a · Android 8.0+</span></div>
+          <div class="platform platform-soon"><span class="platform-k">IOS</span><b>In development</b><span>Not available yet</span></div>
+        </div>
+        <p class="join-meta">v1.0.9 · 约 52.6 MB · SHA256 39ff2187…63a8 · 专有软件</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-faq" id="faq">
+      <div class="ds-container">
+        <div class="section-heading">
+          <h2 class="heading1">FAQ</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>Do I need a computer?</summary>
+            <p>No. The app works with your own API providers or local GGUF models offline; connect to desktop Harness when you want to continue desktop sessions.</p>
+          </details>
+          <details>
+            <summary>Do I need Ubuntu or an emulator on Android?</summary>
+            <p>No. DSHarness Go is a native Android app that uses system APIs directly. No Linux emulator and no root required.</p>
+          </details>
+          <details>
+            <summary>When is iOS coming?</summary>
+            <p>iOS 版本仍在开发中，Not available yet。发布后会在Download页和 GitHub Releases 公布。</p>
+          </details>
+          <details>
+            <summary>Is the source code public?</summary>
+            <p>The source is currently private and only signed APKs are distributed. <strong>After the iOS release, the Android and iOS sources will be open-sourced together.</strong></p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="ds-container footer-inner">
+      <div class="footer-rule"></div>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <img class="brand-icon" src="assets/app-icon-tile.png" alt="" width="26" height="26">
+            <span class="brand-name">DSHarness</span>
+            <span class="brand-chip">GO</span>
+          </a>
+          <p class="body-desc">The mobile side of DeepSeek Harness.</p>
+          <p class="footer-copy">© 2026 DSHarness Go. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#features">Capabilities</a>
+            <a href="#modes">How it works</a>
+            <a href="#plugins">Plugins</a>
+            <a href="#download">Download</a>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="#open-source">Open source plan</a>
+            <a href="./CHANGELOG.md">Changelog</a>
+            <a href="https://github.com/mionio233-collab/dsharness-go/releases" target="_blank" rel="noopener">Releases</a>
+            <a href="https://github.com/mionio233-collab/dsharness-go/issues" target="_blank" rel="noopener">Issues</a>
+            <a href="./terms.html">Terms</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:contact@xmmgd.top">contact@xmmgd.top</a>
+            <span class="footer-note">第三方生态客户端，非 DeepSeek 官方Product</span>
+          </div>
+        </div>
+      </div>
+      <p class="footer-legal">DeepSeek Harness（DSH）及其相关名称、标识、商标与版权归 DeepSeek 公司所有。DSHarness Go 是第三方开发的移动端生态客户端，不是 DeepSeek 官方发布的Product，与 DeepSeek 公司没有隶属、代理、合作或背书关系。</p>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

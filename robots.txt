@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /legacy/
+
+Sitemap: https://dsharnessgo.top/sitemap.xml

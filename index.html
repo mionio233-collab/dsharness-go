@@ -1,0 +1,420 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DSHarness Go — DeepSeek Harness 的移动端生态</title>
+  <meta name="description" content="DSHarness Go 是 DeepSeek Harness 的移动端生态客户端：在手机上连接电脑端 Harness 继续对话，或用本地 API、离线 GGUF 大模型与本机生图独立运行。原生 Android，无需 Ubuntu 模拟器，无需 root。">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://dsharnessgo.top/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dsharnessgo.top/">
+  <meta property="og:title" content="DSHarness Go — DeepSeek Harness 的移动端生态">
+  <meta property="og:description" content="把 DeepSeek Harness 装进手机：连接电脑继续对话，或本地 API / 离线 GGUF / 本机生图独立运行。">
+  <meta property="og:image" content="https://dsharnessgo.top/assets/screenshots/home.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/app-icon-tile.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-bar" id="headerBar">
+      <div class="header-left">
+        <a class="brand" href="#top" aria-label="DSHarness Go 首页">
+          <img class="brand-icon" src="assets/app-icon-tile.png" alt="" width="28" height="28">
+          <span class="brand-name">DSHarness</span>
+          <span class="brand-chip">GO</span>
+        </a>
+        <span class="preview-label scrolled-only">预览版</span>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-secondary btn-github scrolled-only" href="https://github.com/mionio233-collab/dsharness-go" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.15c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.12 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.26 5.69.41.35.78 1.05.78 2.12v3.14c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a class="btn btn-primary btn-download scrolled-only" href="#download">下载<span class="chev"></span></a>
+        <div class="locale-toggle top-only" role="group" aria-label="语言">
+          <button type="button" class="locale-item is-active" data-locale="zh">中文</button>
+          <button type="button" class="locale-item" data-locale="en">EN</button>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu-head">
+        <a class="brand" href="#top">
+          <img class="brand-icon" src="assets/app-icon-tile.png" alt="" width="26" height="26">
+          <span class="brand-name">DSHarness</span>
+          <span class="brand-chip">GO</span>
+        </a>
+        <button class="menu-close" id="menuClose" aria-label="关闭">×</button>
+      </div>
+      <nav class="mobile-menu-body">
+        <a href="#features">能力</a>
+        <a href="#modes">使用方式</a>
+        <a href="#plugins">插件</a>
+        <a href="#download">下载</a>
+        <a href="#faq">FAQ</a>
+        <a class="mobile-download" href="https://github.com/mionio233-collab/dsharness-go/releases/latest" target="_blank" rel="noopener">下载 Android APK</a>
+      </nav>
+      <div class="mobile-lang">
+        <button type="button" class="locale-item is-active" data-locale="zh">中文</button>
+        <button type="button" class="locale-item" data-locale="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true"><span class="hero-beam beam-a"></span><span class="hero-beam beam-b"></span></div>
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="ds-container hero-inner">
+        <div class="hero-head">
+          <span class="hero-eyebrow"><span class="spark" aria-hidden="true">✦</span>预览版</span>
+          <h1 class="hero-title"><span class="latin">DeepSeek Harness</span><br>现在，装进手机</h1>
+          <div class="hero-desc">
+            <p>不用开电脑，也能继续桌面上未完成的工作。</p>
+            <p>DSHarness Go 是 DeepSeek Harness 的原生 Android 客户端：连接电脑继续对话，或直接在手机上运行本地模型、生图与手机 Agent。</p>
+          </div>
+          <a class="btn btn-primary btn-hero" href="#download">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            下载 Android 版
+            <span class="chev"></span>
+          </a>
+          <p class="hero-note">Android 预览版已发布 · iOS 开发中</p>
+        </div>
+
+        <div class="hero-preview">
+          <div class="sync-scene">
+            <div class="sync-desktop">
+              <aside class="app-sidebar" aria-hidden="true">
+                <div class="app-windowbar">
+                  <span class="traffic"><i></i><i></i><i></i></span>
+                  <span class="app-panel-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="9" rx="1.5"/><path d="M10 3.5v9"/></svg></span>
+                </div>
+                <div class="native-brand">
+                  <img class="native-logo" src="assets/deepseek-harness-logo.svg" alt="DeepSeek Harness">
+                </div>
+                <button class="app-newchat" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5v9M3.5 8h9"/></svg> 新会话</button>
+                <div class="app-nav">
+                  <div class="app-nav-item"><span class="ai"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2.5v2M10 2.5v2M4 4.5h8v3.5a4 4 0 0 1-8 0z"/><path d="M8 12v1.5"/></svg></span>插件</div>
+                  <div class="app-nav-item"><span class="ai"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.2"/><path d="M8 5v3.3l2 1.2"/></svg></span>自动化任务</div>
+                </div>
+                <div class="app-ws-head"><span>工作区</span><span class="app-ws-icons"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4"/><path d="M10 10l3 3"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M3 11l2 2 2-2M11 13V3M9 5l2-2 2 2"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/><path d="M8 8.2v3M6.5 9.7h3"/></svg></span></div>
+                <div class="app-ws active"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 默认工作区</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 认识 DeepSeek Harness</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 生成 Q3 数据汇总 PPT</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 准备明天评审会的议题清单</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 给销售报表补上同比/环比列</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> 数据分析项目</div>
+                <div class="app-ws"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h4l1.2 1.5h5.8v6.5h-11z"/></svg></span> DSH 插件开发</div>
+                <div class="sidebar-plugin">
+                  <img src="assets/plugin-dsh-go.png" alt="DSHarness Go 互联插件">
+                  <span class="plugin-installed"><i></i>已安装</span>
+                </div>
+                <div class="app-user"><span class="app-avatar"></span> DeepSeek</div>
+              </aside>
+              <div class="app-chat">
+                <div class="app-chat-head">
+                  <span>在吗你能帮我做什么?</span>
+                  <span class="app-chat-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="9" rx="1.5"/><path d="M10 3.5v9"/></svg></span>
+                </div>
+                <div class="app-chat-body native-chat">
+                  <div class="app-msg-user">在吗你能帮我做什么?</div>
+                  <div class="app-thinking">已思考 ›</div>
+                  <div class="app-bot">
+                    <p>在的，我说一下我能帮你做什么 👋</p>
+                    <p class="app-sec">写代码 / 做页面</p>
+                    <ul>
+                      <li>写前端页面、HTML/CSS/JS 小组件，默认按手机屏幕尺寸来做</li>
+                      <li>写脚本、改 bug、解释代码、做小工具</li>
+                      <li>可以直接把文件写入工作区，方便你查看或拿去用</li>
+                    </ul>
+                    <p class="app-sec">做 DSH Go 手机插件</p>
+                    <ul>
+                      <li>生成插件 JSON 包（主题配色、背景图、桌面宠物、自定义指令文本）</li>
+                      <li>你会拿到一个 &lt;id&gt;.dshgo.json，自己在 App 的「插件 → 创建/安装」里预览并安装</li>
+                      <li>说明一下：我只能生成文件，<strong>不会自动装上、也不会上架</strong></li>
+                    </ul>
+                    <p class="app-sec">查资料 / 处理文字</p>
+                    <ul>
+                      <li>读取你给的文本文件、抓取网页内容做整理总结</li>
+                      <li>翻译、润色、写文案、列大纲、做计划</li>
+                    </ul>
+                    <p class="app-sec">画图</p>
+                    <ul>
+                      <li>用本机图片模型生成插画/图标（提示词得用英文，我会帮你翻译）</li>
+                    </ul>
+                    <p class="app-sec">做不了的事</p>
+                    <ul>
+                      <li>不能联网装软件、不能访问你手机里的相册/通讯录、不能替你在 App 里点安装。</li>
+                    </ul>
+                    <p>想从哪个开始？比如你可以直接说「帮我做一个番茄钟页面」或者「做个猫咪桌宠插件」，我就直接开工 🙂</p>
+                  </div>
+                </div>
+                <div class="app-input">
+                  <div class="app-input-ph">提问或描述你要完成的任务…</div>
+                  <div class="app-input-row">
+                    <span class="app-plus"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5v9M3.5 8h9"/></svg></span>
+                    <span class="app-shield"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2l4 1.5V8c0 2.5-1.7 4.4-4 5.2C5.7 12.4 4 10.5 4 8V3.5L8 2z"/><path d="M6.3 8l1.3 1.3 2.3-2.4"/></svg> 工作区内修改 <span class="chev-down">⌄</span></span>
+                    <span class="app-model">Qwen3.8-Flash High ⌄</span>
+                    <span class="app-send">↑</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sync-phone">
+              <div class="sync-phone-frame"><img src="assets/screenshots/phone-native.jpg" alt="手机端同步同一会话" loading="eager"></div>
+              <div class="sync-badge"><i></i>消息已同步</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section" id="features">
+      <div class="ds-container">
+        <div class="section-heading center">
+          <h2 class="heading1">能力不断拓展，工作由你掌握</h2>
+          <p class="body-desc">连接、对话、本地模型、生图、插件与手机自动化，一个 App 全部装下。</p>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap-card">
+            <div class="cap-copy">
+              <h3 class="subtitle">继续电脑上的工作</h3>
+              <p class="body-desc">局域网扫码或同账号中继连接电脑端 Harness，手机端继续对话、查看任务进度，模型与项目上下文保持一致。</p>
+            </div>
+            <figure class="cap-media">
+              <div class="cap-phone"><img src="assets/screenshots/chat.jpg" alt="对话与远程连接" loading="lazy"></div>
+            </figure>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-copy">
+              <h3 class="subtitle">离线 GGUF 大模型</h3>
+              <p class="body-desc">内置 llama.cpp 端侧推理，下载或导入 GGUF 模型，断网也能对话；支持视觉模型与多模态输入。</p>
+            </div>
+            <figure class="cap-media">
+              <div class="cap-phone"><img src="assets/screenshots/local-models.jpg" alt="本地模型" loading="lazy"></div>
+            </figure>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-copy">
+              <h3 class="subtitle">本机生图</h3>
+              <p class="body-desc">内置 stable-diffusion.cpp，图片生成完全在手机本地完成；也支持 OpenAI Images 兼容接口，图片不必经过云端。</p>
+            </div>
+            <figure class="cap-media">
+              <div class="cap-phone"><img src="assets/screenshots/multimodal.jpg" alt="多模态与本机生图" loading="lazy"></div>
+            </figure>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-copy">
+              <h3 class="subtitle">手机 Agent</h3>
+              <p class="body-desc">基于 Android 无障碍服务：观察界面、点击、输入、手势与截图，让模型替你操作手机；敏感页面不上传。</p>
+            </div>
+            <figure class="cap-media">
+              <div class="cap-phone"><img src="assets/screenshots/phone-control.jpg" alt="手机控制与无障碍授权" loading="lazy"></div>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODES -->
+    <section class="section section-tight" id="modes">
+      <div class="ds-container">
+        <div class="section-heading">
+          <h2 class="heading1">一个 App，两种用法</h2>
+          <p class="body-desc">连接电脑，或在手机上独立运行。随时切换，无需重装。</p>
+        </div>
+        <div class="mode-grid">
+          <article class="mode-card">
+            <h3 class="subtitle">远程连接</h3>
+            <p class="body-desc">电脑端启用互联插件，扫码或同账号配对。手机端继续桌面对话、回答电脑端的提问卡片，模型与项目上下文保持一致。</p>
+            <div class="mode-chips">
+              <span>局域网 / 中继</span><span>断线重连</span><span>增量同步</span>
+            </div>
+          </article>
+          <article class="mode-card">
+            <h3 class="subtitle">手机独立运行</h3>
+            <p class="body-desc">不依赖电脑。配置自己的 API 供应商，或下载离线模型；生图与自动化都在手机上完成，无需 Ubuntu 模拟器、无需 root。</p>
+            <div class="mode-chips">
+              <span>OpenAI / Anthropic 兼容</span><span>离线 GGUF</span><span>本机生图</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLUGINS SHOWCASE -->
+    <section class="section" id="plugins">
+      <div class="ds-container">
+        <article class="showcase-card">
+          <div class="showcase-copy">
+            <h2 class="heading1">一切皆插件</h2>
+            <p class="body-desc">安装现有插件，或用插件组合自己的工作区、主题、技能和界面。DSH Go 插件商城随 App 提供示例插件，也可以接入自己的 HTTPS 商城目录。</p>
+            <ul class="check-list">
+              <li>安装、启用、禁用与组合插件</li>
+              <li>自定义商城目录，接入团队内部插件</li>
+              <li>插件与手机能力（文件、通知、自动化）打通</li>
+            </ul>
+          </div>
+          <figure class="showcase-media">
+            <div class="showcase-phone"><img src="assets/screenshots/plugins.jpg" alt="DSH Go 插件商城" loading="lazy"></div>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONNECT PLUGIN -->
+    <section class="section" id="connect">
+      <div class="ds-container">
+        <div class="section-heading">
+          <h2 class="heading1">连接电脑：安装 DSH Go 互联插件</h2>
+          <p class="body-desc">在电脑端 DeepSeek Harness 安装互联插件，手机即可通过局域网或同账号继续工作区、会话和任务。</p>
+        </div>
+        <div class="connect-grid">
+          <div class="connect-card">
+            <h3 class="subtitle">一键安装</h3>
+            <p class="body-desc">在 DSH 插件页搜索 <code>dsh-go-workspace</code> 即可一键安装；命令行用户也可以直接运行：</p>
+            <div class="code-block">
+              <code id="pluginInstallCmd">dsh plugin --profile web add dsh-go-workspace</code>
+              <button class="copy-btn" id="copyInstallCmd" type="button">复制</button>
+            </div>
+            <p class="connect-note">DSH Desktop 请使用应用内插件页安装，命令行方式适用于 Web profile。</p>
+          </div>
+          <div class="connect-card">
+            <h3 class="subtitle">连接步骤</h3>
+            <ol class="steps-list">
+              <li>安装并启用 <b>DSH Go-workspace</b></li>
+              <li>打开 <b>DSHarness Go 互联插件</b>，开启局域网访问</li>
+              <li>在电脑端生成配对信息 / 二维码</li>
+              <li>手机「设置 → 连接」扫码或同账号配对</li>
+            </ol>
+            <a class="text-link" href="https://xiamen-menggenda-technology-co-ltd.github.io/DSH-Go-workspace-site/" target="_blank" rel="noopener">插件安装与教程 <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN SOURCE PLAN -->
+    <section class="section" id="open-source">
+      <div class="ds-container">
+        <div class="os-card">
+          <div class="os-head">
+            <p class="eyebrow">OPEN SOURCE</p>
+            <h2 class="heading1">开源计划</h2>
+            <p class="body-desc">当前源码不公开，官方仅分发签名 APK。<strong>计划在 iOS 版本开发完成后，将 Android 与 iOS 源码同步开源。</strong></p>
+          </div>
+          <ol class="os-timeline">
+            <li class="is-done"><span>01</span><b>Android 预览版</b><em>已发布</em></li>
+            <li class="is-now"><span>02</span><b>iOS 版本</b><em>开发中</em></li>
+            <li><span>03</span><b>源码同步开源</b><em>iOS 完成后</em></li>
+          </ol>
+          <p class="os-note">届时将公布开源仓库、许可证与迁移说明。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN / DOWNLOAD -->
+    <section class="join" id="download">
+      <canvas class="join-canvas" id="joinCanvas" aria-hidden="true"></canvas>
+      <div class="join-glow" aria-hidden="true"></div>
+      <div class="ds-container join-inner">
+        <h2 class="heading1">加入 DSH 移动端生态</h2>
+        <p class="body-desc join-desc">下载 Android 预览版 APK，连接电脑端 Harness 或独立运行。iOS 版本开发中，暂不提供下载。</p>
+        <div class="join-actions">
+          <a class="btn btn-primary btn-lg" href="https://github.com/mionio233-collab/dsharness-go/releases/latest" target="_blank" rel="noopener">下载 Android APK</a>
+          <a class="btn btn-secondary btn-lg" href="https://github.com/mionio233-collab/dsharness-go/releases" target="_blank" rel="noopener">全部版本</a>
+          <a class="btn btn-ghost btn-lg" href="./terms.html">使用条款</a>
+        </div>
+        <div class="join-platforms">
+          <div class="platform"><span class="platform-k">ANDROID</span><b>预览版已发布</b><span>arm64-v8a · Android 8.0+</span></div>
+          <div class="platform platform-soon"><span class="platform-k">IOS</span><b>开发中 · 敬请期待</b><span>暂不提供下载</span></div>
+        </div>
+        <p class="join-meta">v1.0.9 · 约 52.6 MB · SHA256 39ff2187…63a8 · 专有软件</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-faq" id="faq">
+      <div class="ds-container">
+        <div class="section-heading">
+          <h2 class="heading1">常见问题</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>需要电脑才能用吗？</summary>
+            <p>不需要。手机端可以独立使用自有 API 供应商，也可以下载本地 GGUF 模型离线推理；想继续电脑上的会话时，再连接电脑端 Harness。</p>
+          </details>
+          <details>
+            <summary>需要在 Android 上安装 Ubuntu / 模拟器吗？</summary>
+            <p>不需要。DSHarness Go 是原生 Android 应用，直接调用系统能力，无需 Linux 模拟器、无需 root。</p>
+          </details>
+          <details>
+            <summary>iOS 版本什么时候发布？</summary>
+            <p>iOS 版本仍在开发中，暂不提供下载。发布后会在下载页和 GitHub Releases 公布。</p>
+          </details>
+          <details>
+            <summary>源码是否公开？</summary>
+            <p>当前源码不公开，官方仅分发签名 APK；<strong>计划在 iOS 版本开发完成后，将 Android 与 iOS 源码同步开源</strong>。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="ds-container footer-inner">
+      <div class="footer-rule"></div>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <img class="brand-icon" src="assets/app-icon-tile.png" alt="" width="26" height="26">
+            <span class="brand-name">DSHarness</span>
+            <span class="brand-chip">GO</span>
+          </a>
+          <p class="body-desc">DeepSeek Harness 的移动端生态。</p>
+          <p class="footer-copy">© 2026 DSHarness Go. 保留所有权利。</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>产品</h4>
+            <a href="#features">能力</a>
+            <a href="#modes">使用方式</a>
+            <a href="#plugins">插件</a>
+            <a href="#download">下载</a>
+          </div>
+          <div class="footer-col">
+            <h4>资源</h4>
+            <a href="#open-source">开源计划</a>
+            <a href="./CHANGELOG.md">更新日志</a>
+            <a href="https://github.com/mionio233-collab/dsharness-go/releases" target="_blank" rel="noopener">Releases</a>
+            <a href="https://github.com/mionio233-collab/dsharness-go/issues" target="_blank" rel="noopener">问题反馈</a>
+            <a href="./terms.html">使用条款</a>
+          </div>
+          <div class="footer-col">
+            <h4>联系</h4>
+            <a href="mailto:contact@xmmgd.top">contact@xmmgd.top</a>
+            <span class="footer-note">第三方生态客户端，非 DeepSeek 官方产品</span>
+          </div>
+        </div>
+      </div>
+      <p class="footer-legal">DeepSeek Harness（DSH）及其相关名称、标识、商标与版权归 DeepSeek 公司所有。DSHarness Go 是第三方开发的移动端生态客户端，不是 DeepSeek 官方发布的产品，与 DeepSeek 公司没有隶属、代理、合作或背书关系。</p>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
