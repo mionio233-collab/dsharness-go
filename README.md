@@ -199,7 +199,7 @@ DSHarness Go 是第三方开发的移动端生态客户端，**不是 DeepSeek �
 
 ## 许可
 
-本仓库代码采用 **GNU AGPL-3.0**，见 [LICENSE](./LICENSE)。项目源自 [Hakunm/dsh-android-app](https://github.com/Hakunm/dsh-android-app)，版权与第三方声明见 [NOTICE](./NOTICE)。商标、名称及第三方素材的权利归各自权利人所有。
+本仓库代码采用 **GNU AGPL-3.0**，见 [LICENSE](./LICENSE)。版权与第三方声明见 [NOTICE](./NOTICE)。商标、名称及第三方素材的权利归各自权利人所有。
 
 
 第三方组件（llama.cpp、stable-diffusion.cpp、multiplatform-markdown-renderer、DeepSeek Harness 相关素材等）
